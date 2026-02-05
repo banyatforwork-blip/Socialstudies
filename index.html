@@ -43,8 +43,7 @@
                 ],
                 icon: '♿',
                 color: 'bg-blue-50',
-                borderColor: 'border-blue-200',
-                iconColor: 'text-blue-600'
+                borderColor: 'border-blue-200'
             },
             {
                 id: 'farmer',
@@ -58,8 +57,7 @@
                 ],
                 icon: '🚜',
                 color: 'bg-green-50',
-                borderColor: 'border-green-200',
-                iconColor: 'text-green-600'
+                borderColor: 'border-green-200'
             },
             {
                 id: 'student',
@@ -73,8 +71,7 @@
                 ],
                 icon: '🎓',
                 color: 'bg-orange-50',
-                borderColor: 'border-orange-200',
-                iconColor: 'text-orange-600'
+                borderColor: 'border-orange-200'
             },
             {
                 id: 'singlemom',
@@ -88,8 +85,7 @@
                 ],
                 icon: '👶',
                 color: 'bg-pink-50',
-                borderColor: 'border-pink-200',
-                iconColor: 'text-pink-600'
+                borderColor: 'border-pink-200'
             }
         ];
 
@@ -112,15 +108,39 @@
 
         function renderStart() {
             container.innerHTML = `
-                <div class="bg-white rounded-[2.5rem] card-shadow p-10 text-center border border-slate-100 mt-10 fade-in">
-                    <div class="inline-block p-5 bg-indigo-50 rounded-3xl mb-6 text-5xl">✨</div>
-                    <h1 class="text-4xl font-black text-slate-800 mb-4 tracking-tight">ถ้าฉันเป็น...</h1>
-                    <p class="text-lg text-slate-500 mb-10 leading-relaxed">
-                        สวมบทบาท เรียนรู้ชีวิต และทำความเข้าใจ <br/>
-                        ความท้าทายของเพื่อนร่วมสังคม
-                    </p>
+                <div class="bg-white rounded-[2.5rem] card-shadow p-8 md:p-10 border border-slate-100 fade-in">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-5 bg-indigo-50 rounded-3xl mb-4 text-5xl">✨</div>
+                        <h1 class="text-4xl font-black text-slate-800 mb-2 tracking-tight">ถ้าฉันเป็น...</h1>
+                        <p class="text-slate-500 font-medium">สวมบทบาท เรียนรู้ชีวิต และเข้าใจกันมากขึ้น</p>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-3xl p-6 mb-10 border border-slate-100">
+                        <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            📜 กติกาการเล่น
+                        </h2>
+                        <ul class="space-y-4 text-slate-600 text-sm md:text-base">
+                            <li class="flex gap-3">
+                                <span class="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">1</span>
+                                <span><strong>สุ่มบทบาท:</strong> ผู้เล่นแต่ละคนจะได้รับ 1 บทบาทที่มีข้อจำกัดชีวิตต่างกัน</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">2</span>
+                                <span><strong>จั่วสถานการณ์:</strong> ในแต่ละรอบจะมีการ์ดเหตุการณ์ที่ไม่คาดฝันเกิดขึ้น</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">3</span>
+                                <span><strong>แลกเปลี่ยน:</strong> ให้แต่ละคนพูดความรู้สึกหรือวิธีแก้ปัญหา <strong>"ในฐานะตัวละครนั้น"</strong></span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">4</span>
+                                <span><strong>เคารพความเห็น:</strong> รับฟังเพื่อนในวงโดยไม่ตัดสิน เพื่อทำความเข้าใจความต่าง</span>
+                            </li>
+                        </ul>
+                    </div>
+
                     <button onclick="startGame()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-5 rounded-2xl transition-all shadow-xl hover:shadow-indigo-100 flex items-center justify-center gap-3 text-xl">
-                        สุ่มแจกบทบาท <span>➜</span>
+                        ตกลง เข้าสู่การสุ่มบทบาท ➜
                     </button>
                 </div>
             `;
@@ -157,7 +177,10 @@
 
             container.innerHTML = `
                 <div class="space-y-6">
-                    <h2 class="text-2xl font-bold text-center mb-6 flex items-center justify-center gap-3">👥 บทบาทที่คุณได้รับ</h2>
+                    <div class="text-center mb-4">
+                        <h2 class="text-2xl font-bold text-slate-800">👥 บทบาทประจำตัว</h2>
+                        <p class="text-slate-500 text-sm">จำข้อมูลของตนเองไว้เพื่อใช้ในการแลกเปลี่ยน</p>
+                    </div>
                     <div class="grid grid-cols-1 gap-6">${rolesHtml}</div>
                     <button onclick="startPlay()" class="w-full bg-slate-900 text-white font-bold py-5 rounded-2xl mt-8 shadow-xl hover:bg-slate-800 transition-all">เริ่มเผชิญสถานการณ์แรก ➜</button>
                 </div>
@@ -176,14 +199,14 @@
                     <div class="bg-white rounded-[3rem] card-shadow p-10 border border-slate-100 text-center">
                         <div class="mb-10">
                             <span class="text-7xl block mb-6">${scenario.icon}</span>
-                            <p class="text-xs font-black text-indigo-400 uppercase tracking-widest mb-2">สถานการณ์ที่ ${currentRound}</p>
+                            <p class="text-xs font-black text-indigo-400 uppercase tracking-widest mb-2">สถานการณ์ที่ ${currentRound} / 4</p>
                             <h2 class="text-4xl font-black text-slate-800 mb-6">${scenario.title}</h2>
                             <div class="bg-red-50 text-red-700 p-6 rounded-[2rem] border border-red-100">
                                 <p class="text-xl font-medium leading-relaxed">${scenario.description}</p>
                             </div>
                         </div>
                         <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
-                            <p class="text-indigo-300 text-xs font-black uppercase tracking-widest mb-4">💬 ถึงเวลาพูดคุย</p>
+                            <p class="text-indigo-300 text-xs font-black uppercase tracking-widest mb-4">💬 คำถามสำหรับวงสนทนา</p>
                             <p class="text-2xl font-bold italic leading-relaxed">
                                 "ในฐานะ <span class="text-indigo-400 underline underline-offset-8">บทบาทของคุณ</span> คุณได้รับผลกระทบอย่างไร และจะทำอย่างไรต่อไป?"
                             </p>
