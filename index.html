@@ -3,34 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ถ้าฉันเป็น... </title>
+    <title>โปรเจกต์สังคมศึกษา | ถ้าฉันเป็น...</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Anuphan', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Anuphan', 'sans-serif'] },
                     animation: {
-                        'float': 'float 4s ease-in-out infinite',
+                        'float': 'float 5s ease-in-out infinite',
                         'fade-up': 'fadeUp 0.6s ease-out forwards',
-                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'pulse-bg': 'pulseBg 8s ease-in-out infinite',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        pulseSoft: {
-                            '0%, 100%': { opacity: '0.2', transform: 'scale(1)' },
-                            '50%': { opacity: '0.4', transform: 'scale(1.1)' },
-                        }
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        pulseBg: { '0%, 100%': { opacity: '0.4' }, '50%': { opacity: '0.7' } }
                     }
                 }
             }
@@ -38,288 +27,236 @@
     </script>
     <style>
         body {
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(135deg, #eff6ff 0%, #faf5ff 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 10px 40px -10px rgba(31, 38, 135, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
         }
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
+        .student-pill {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        .student-pill:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center p-4 md:p-6 text-slate-800">
+<body class="p-4 md:p-8 flex flex-col items-center">
 
-    <div id="app" class="w-full max-w-3xl relative">
-        <!-- Background Decor -->
-        <div class="absolute -top-20 -left-20 w-64 h-64 bg-indigo-200 rounded-full blur-[100px] animate-pulse-soft -z-10"></div>
-        <div class="absolute top-40 -right-20 w-72 h-72 bg-pink-200 rounded-full blur-[100px] animate-pulse-soft -z-10" style="animation-delay: 1.5s"></div>
+    <!-- Aesthetic Background Elements -->
+    <div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-200 rounded-full blur-[120px] animate-pulse-bg -z-10"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-200 rounded-full blur-[120px] animate-pulse-bg -z-10" style="animation-delay: 2s"></div>
 
-        <!-- Main Content Container -->
-        <div id="content-area">
-            <!-- Content will be injected via JavaScript -->
-        </div>
+    <div id="app" class="w-full max-w-3xl">
+        <!-- HEADER: The "Student" Touch with Premium Style -->
+        <header class="mb-8 text-left animate-fade-up">
+            <div class="inline-flex items-center gap-2 bg-indigo-600 text-white text-[11px] font-black px-3 py-1 rounded-full mb-4 shadow-lg shadow-indigo-200 uppercase tracking-widest">
+                <span class="animate-pulse">●</span> วิชาสังคมศึกษา ม.1/12
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+                ถ้าฉันเป็น... <span class="text-indigo-600">ชีวิตสมมติ</span>
+            </h1>
+            <p class="text-slate-500 mt-2 text-lg font-medium">สื่อการเรียนรู้เชิงสถานการณ์ เรื่องความเหลื่อมล้ำในสังคม</p>
+        </header>
+
+        <main id="content-area" class="animate-fade-up" style="animation-delay: 0.2s">
+            <!-- Dynamic Content -->
+        </main>
+
+        <!-- FOOTER: The "Pass Out From Glory" Credit Section -->
+        <footer class="mt-16 w-full animate-fade-up" style="animation-delay: 0.4s">
+            <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-8"></div>
+            <h3 class="text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-6">คณะผู้จัดทำโครงงาน</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
+                <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">01</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">กอบโชค คงเทพ</p>
+                        <p class="text-sm font-bold text-slate-700">เลขที่ 1</p>
+                    </div>
+                </div>
+                <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">05</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">ณัฐกรณ์ แสงรอด</p>
+                        <p class="text-sm font-bold text-slate-700">เลขที่ 5</p>
+                    </div>
+                </div>
+                <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">06</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">ธนบดินทร์ จักรวาลธนารักษ์</p>
+                        <p class="text-sm font-bold text-slate-700">เลขที่ 6</p>
+                    </div>
+                </div>
+                <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">21</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">น้ำฟ้า พลสุวรรณ</p>
+                        <p class="text-sm font-bold text-slate-700">เลขที่ 21</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-[10px] text-slate-400 mt-10 font-medium">© 2026 มัธยมศึกษาปีที่ 1 ห้อง 12 | โรงเรียนสุราษฎร์ธานี</p>
+        </footer>
     </div>
 
-    <footer class="mt-8 text-center text-slate-400 text-xs font-light tracking-wide opacity-0 animate-fade-up" style="animation-delay: 0.8s">
-        © Educational Simulation Tool | ออกแบบเพื่อสร้างความเข้าใจความแตกต่างในสังคม
-    </footer>
-
     <script>
-        // --- 1. DATA POOL ---
         const ROLE_POOL = [
-            { id: 'disabled', title: 'คนพิการ (ใช้รถเข็น)', income: '800 บาท (เบี้ยยังชีพ)', details: ['ขึ้นรถเมล์หรือใช้ฟุตบาทได้ยาก', 'หางานทำลำบากแม้จะเรียนจบสูง', 'ต้องจ่ายค่าซ่อมรถเข็นบ่อยๆ'], icon: '♿', color: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700' },
-            { id: 'farmer', title: 'เกษตรกรรายย่อย', income: 'ไม่แน่นอน (ขายผลผลิตได้น้อย)', details: ['ราคาปุ๋ยแพงขึ้นเรื่อยๆ', 'ถ้าฝนไม่ตกตามฤดูกาลจะไม่มีผลผลิตขาย', 'มีหนี้สินจากการกู้มาลงทุน'], icon: '🌾', color: 'bg-green-50', border: 'border-green-200', text: 'text-green-700' },
-            { id: 'student', title: 'นักเรียนพาร์ทไทม์', income: '3,000 บาทต่อเดือน', details: ['ต้องช่วยพ่อแม่หาเงินส่งตัวเองเรียน', 'ไม่มีคอมพิวเตอร์เหมือนเพื่อนคนอื่น', 'ทำงานจนไม่มีเวลาทำการบ้าน'], icon: '🎒', color: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-700' },
-            { id: 'singlemom', title: 'คุณแม่เลี้ยงเดี่ยว', income: '12,000 บาท', details: ['จ่ายค่าค่านมและของใช้ลูกคนเดียว', 'ถ้าลูกป่วยจะลำบากมากเพราะไม่มีคนช่วย', 'ทำงานหนักเพื่ออนาคตลูก'], icon: '👩‍👧', color: 'bg-pink-50', border: 'border-pink-200', text: 'text-pink-700' },
-            { id: 'rider', title: 'พี่ไรเดอร์ส่งอาหาร', income: 'ตามรอบการวิ่ง', details: ['ค่าน้ำมันพุ่งสูงขึ้นแต่ค่ารอบลดลง', 'เสี่ยงอุบัติเหตุและแดดร้อนทุกวัน', 'รถเสียคือรายได้หายทันที'], icon: '🛵', color: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-700' },
-            { id: 'elderly', title: 'คุณยายที่อยู่คนเดียว', income: '600 บาท (เบี้ยชรา)', details: ['สายตาไม่ดีและใช้เทคโนโลยีไม่เก่ง', 'ต้องพึ่งพาเพื่อนบ้านแบ่งปันอาหาร', 'สุขภาพปวดเข่าทำให้ทำงานหนักไม่ได้'], icon: '👵', color: 'bg-slate-50', border: 'border-slate-200', text: 'text-slate-700' },
-            { id: 'cleaner', title: 'พนักงานทำความสะอาด', income: 'ค่าแรงขั้นต่ำรายวัน', details: ['ตื่นเช้ามืด เดินทางไกลหลายต่อ', 'ร่างกายล้าจากการทำงานหนัก', 'ต้องส่งเงินกลับบ้านให้ลูกเรียน'], icon: '🧹', color: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-700' },
-            { id: 'factory', title: 'แรงงานโรงงานรายวัน', income: '350 บาทต่อวัน', details: ['ถ้าโรงงานปิดเครื่องจักรจะไม่ได้เงิน', 'เช่าห้องพักแคบๆ อยู่รวมกันหลายคน', 'เสี่ยงโดนเลิกจ้างถ้าเศรษฐกิจไม่ดี'], icon: '🏭', color: 'bg-zinc-50', border: 'border-zinc-300', text: 'text-zinc-700' }
+            { id: 'disabled', title: 'คนพิการ (ใช้รถเข็น)', income: '800 บาท (เบี้ยยังชีพ)', details: ['หางานยากแม้จบสูง', 'ต้องจ่ายค่าซ่อมรถเข็นบ่อย'], icon: '♿', theme: 'indigo' },
+            { id: 'farmer', title: 'เกษตรกรรายย่อย', income: 'ไม่แน่นอน', details: ['ราคาปุ๋ยแพงขึ้นเรื่อยๆ', 'ลุ้นผลผลิตตามฤดูกาล'], icon: '🌾', theme: 'green' },
+            { id: 'student', title: 'นักเรียนพาร์ทไทม์', income: '3,000 บาท/เดือน', details: ['ทำงานจนไม่มีเวลาเรียน', 'ไม่มีคอมส่วนตัว'], icon: '🎒', theme: 'orange' },
+            { id: 'singlemom', title: 'คุณแม่เลี้ยงเดี่ยว', income: '12,000 บาท', details: ['ดูแลลูกคนเดียว 24 ชม.', 'ถ้าป่วยคือรายได้หยุด'], icon: '👩‍👧', theme: 'pink' },
+            { id: 'rider', title: 'พี่ไรเดอร์ส่งอาหาร', income: 'ตามรอบวิ่ง', details: ['เสี่ยงอุบัติเหตุทุกวินาที', 'ค่าน้ำมันพุ่งสูงขึ้น'], icon: '🛵', theme: 'yellow' },
+            { id: 'elderly', title: 'คุณยายที่อยู่คนเดียว', income: '600 บาท (เบี้ยชรา)', details: ['สายตาไม่ดี ทำงานไม่ไหว', 'พึ่งพาสวัสดิการรัฐ'], icon: '👵', theme: 'slate' }
         ];
 
         const SCENARIO_POOL = [
-            { title: 'โดนแก๊งคอลเซ็นเตอร์หลอก', desc: 'เงินก้อนสุดท้ายในบัญชีถูกโอนออกไปจนเกลี้ยง คุณเหลือเงินติดตัวไม่ถึงร้อยบาทสำหรับทั้งอาทิตย์นี้', icon: '📞' },
-            { title: 'รถที่ใช้เดินทางเสียหายหนัก', desc: 'รถคู่ใจพังกลางทาง ต้องเข้าอู่ซ่อมด่วน ค่าซ่อมสูงถึง 3,000 บาทซึ่งคุณไม่มีเงินเก็บ', icon: '🛠️' },
-            { title: 'น้ำท่วมฉับพลัน', desc: 'น้ำไหลเข้าท่วมที่พัก ข้าวของสำคัญเสียหาย และคุณต้องหยุดงานทำให้ขาดรายได้ไปหลายวัน', icon: '🌧️' },
-            { title: 'ค่าครองชีพพุ่งสูง 2 เท่า', desc: 'ราคาข้าวสารและไข่ไก่แพงขึ้นจนน่าตกใจ เงินที่มีอยู่เริ่มไม่พอซื้ออาหารประทังชีวิต', icon: '🥚' },
-            { title: 'เจ็บป่วยกะทันหัน', desc: 'ร่างกายประท้วงจนลุกไปทำงานไม่ไหว แต่ถ้าไม่ไปทำงานคุณจะถูกหักเงินเดือนที่จำเป็นต้องใช้', icon: '🤒' }
+            { title: 'โดนแก๊งคอลเซ็นเตอร์หลอก!', icon: '📞', desc: 'เงินในบัญชีถูกโอนออกไปจนเกลี้ยง คุณจะเอาชีวิตรอดอย่างไรในเดือนนี้?' },
+            { title: 'พาหนะคู่ใจพังหนัก!', icon: '🛠️', desc: 'รถเสียต้องซ่อม 3,000 บาท ซึ่งเป็นเงินจำนวนมหาศาลสำหรับคุณ' },
+            { title: 'วิกฤตน้ำท่วมฉับพลัน!', icon: '🌧️', desc: 'ที่พักเสียหายหนักและต้องหยุดงาน ทำให้ขาดรายได้ที่จำเป็น' },
+            { title: 'ค่าของชีพพุ่งสูง 2 เท่า!', icon: '🥚', desc: 'ราคาข้าวและไข่ไก่แพงขึ้นจนคุณเริ่มซื้ออาหารประทังชีวิตไม่ไหว' }
         ];
 
-        // --- 2. GAME STATE ---
-        let state = {
-            playerCount: 1,
-            activeRoles: [],
-            scenarios: [],
-            currentRound: 0,
-            maxRounds: 3
-        };
-
+        let state = { playerCount: 1, activeRoles: [], scenarios: [], currentRound: 0 };
         const appContainer = document.getElementById('content-area');
 
-        // --- 3. HELPER FUNCTIONS ---
-        function shuffle(array) {
-            const newArr = [...array];
-            for (let i = newArr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-            }
-            return newArr;
-        }
-
-        function adjustPlayers(delta) {
-            const newVal = state.playerCount + delta;
-            if (newVal >= 1 && newVal <= ROLE_POOL.length) {
-                state.playerCount = newVal;
-                const el = document.getElementById('player-count-display');
-                if (el) {
-                    el.classList.add('scale-125', 'text-indigo-600');
-                    el.innerText = state.playerCount;
-                    setTimeout(() => el.classList.remove('scale-125', 'text-indigo-600'), 200);
-                }
-            }
-        }
-
-        // --- 4. RENDER PAGES ---
         function renderSetup() {
             appContainer.innerHTML = `
-                <div class="glass-card rounded-[2.5rem] p-8 md:p-12 text-center animate-fade-up">
-                    <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-indigo-500 to-indigo-700 text-white text-5xl rounded-3xl mb-8 shadow-xl shadow-indigo-200 animate-float">
-                        🎲
-                    </div>
-                    <h1 class="text-4xl md:text-5xl font-black text-indigo-950 mb-3 tracking-tight stagger-1 animate-fade-up opacity-0">ถ้าฉันเป็น...</h1>
-                    <p class="text-slate-500 font-medium mb-10 text-lg stagger-2 animate-fade-up opacity-0">บททดสอบความเข้าใจชีวิตในสังคม</p>
-                    
-                    <div class="bg-indigo-50/50 rounded-3xl p-6 border border-indigo-100 mb-10 text-left stagger-3 animate-fade-up opacity-0">
-                        <h3 class="font-bold text-indigo-900 mb-4 flex items-center gap-2 text-lg">
-                            <span class="bg-indigo-600 text-white w-8 h-8 flex items-center justify-center rounded-lg text-sm">?</span> 
-                            กฎกติกาการเล่น (Rules)
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="flex gap-4">
-                                <div class="font-black text-indigo-600">1.</div>
-                                <p class="text-sm text-slate-600">ทุกคนจะได้รับ <b>"บทบาทสมมติ"</b> ที่มีข้อจำกัดและรายได้แตกต่างกัน</p>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="font-black text-indigo-600">2.</div>
-                                <p class="text-sm text-slate-600">ต้องเผชิญกับ <b>"สถานการณ์วิกฤต"</b> 3 เหตุการณ์ และตัดสินใจแก้ปัญหาตามทรัพยากรที่มี</p>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="font-black text-indigo-600">3.</div>
-                                <p class="text-sm text-slate-600">หลังจบเกม <b>"สรุปบทเรียน"</b> ร่วมกันว่าความเหลื่อมล้ำส่งผลต่อการตัดสินใจอย่างไร</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="max-w-xs mx-auto mb-10 stagger-3 animate-fade-up opacity-0">
-                        <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">เลือกจำนวนผู้เล่น (1-${ROLE_POOL.length})</p>
-                        <div class="flex items-center justify-between bg-white rounded-2xl p-2 shadow-inner border border-slate-100">
-                            <button onclick="adjustPlayers(-1)" class="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-slate-50 text-2xl transition-all active:scale-90">–</button>
-                            <span id="player-count-display" class="text-4xl font-black text-slate-800 transition-all duration-200">${state.playerCount}</span>
-                            <button onclick="adjustPlayers(1)" class="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-slate-50 text-2xl transition-all active:scale-90">+</button>
-                        </div>
-                    </div>
-
-                    <button onclick="startGame()" class="group w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xl font-bold py-5 rounded-2xl shadow-2xl shadow-indigo-200 transition-all transform active:scale-95 flex items-center justify-center gap-3 stagger-3 animate-fade-up opacity-0">
-                        เริ่มสุ่มชีวิต 
-                        <span>➜</span>
-                    </button>
-                </div>
-            `;
-        }
-
-        function startGame() {
-            state.activeRoles = shuffle(ROLE_POOL).slice(0, state.playerCount);
-            state.scenarios = shuffle(SCENARIO_POOL).slice(0, state.maxRounds);
-            state.currentRound = 0;
-            renderRoleReveal();
-        }
-
-        function renderRoleReveal() {
-            if (!state.activeRoles || state.activeRoles.length === 0) {
-                renderSetup();
-                return;
-            }
-
-            let rolesHTML = '';
-            state.activeRoles.forEach((role, i) => {
-                if (role) {
-                    rolesHTML += `
-                        <div class="glass-card bg-white rounded-3xl p-6 border-l-8 ${role.border} animate-fade-up opacity-0" style="animation-delay: ${i * 0.15}s">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="text-4xl animate-float" style="animation-delay: ${i * 0.2}s">${role.icon}</div>
-                                <div>
-                                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">ผู้เล่นคนที่ ${i + 1}</p>
-                                    <h3 class="text-xl font-black ${role.text}">${role.title}</h3>
-                                </div>
-                            </div>
-                            <div class="bg-slate-50 p-3 rounded-xl mb-4 border border-slate-100">
-                                <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">รายได้/งบประมาณ</p>
-                                <p class="font-bold text-slate-700">${role.income}</p>
-                            </div>
-                            <ul class="text-sm text-slate-600 space-y-2 pl-2">
-                                ${role.details.map(d => `<li class="flex gap-2"><span>•</span> ${d}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-                }
-            });
-
-            appContainer.innerHTML = `
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-10 animate-fade-up">
-                        <h2 class="text-3xl font-black text-slate-900 mb-2">🎭 โชคชะตาของคุณ</h2>
-                        <p class="text-slate-500">จำรายละเอียด "ต้นทุนชีวิต" ของคุณไว้ให้แม่น</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                        ${rolesHTML}
-                    </div>
-
-                    <div class="text-center animate-fade-up opacity-0" style="animation-delay: 0.5s">
-                        <button onclick="renderScenario()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl transition-all transform active:scale-95">
-                            รับสถานการณ์วิกฤต ⚡
-                        </button>
-                    </div>
-                </div>
-            `;
-            window.scrollTo(0, 0);
-        }
-
-        function renderScenario() {
-            if (state.currentRound >= state.maxRounds) {
-                renderReflection();
-                return;
-            }
-
-            const s = state.scenarios[state.currentRound];
-            if (!s) {
-                renderReflection();
-                return;
-            }
-
-            appContainer.innerHTML = `
-                <div class="glass-card rounded-[3rem] p-8 md:p-12 text-center max-w-2xl mx-auto animate-fade-up">
-                    <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-black uppercase tracking-widest mb-8 border border-indigo-100">
-                        วิกฤตที่ ${state.currentRound + 1} / ${state.maxRounds}
-                    </div>
-
-                    <div class="mb-12">
-                        <div class="text-9xl mb-8 inline-block animate-float">
-                            ${s.icon}
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight leading-tight stagger-1 animate-fade-up opacity-0">${s.title}</h2>
-                        <div class="h-1 w-20 bg-indigo-500 mx-auto mb-6 rounded-full stagger-1 animate-fade-up opacity-0"></div>
-                        <p class="text-xl text-slate-600 font-medium leading-relaxed italic px-4 stagger-2 animate-fade-up opacity-0">"${s.desc}"</p>
-                    </div>
-
-                    <div class="bg-indigo-600 rounded-[2rem] p-8 text-white shadow-2xl shadow-indigo-200 mb-10 stagger-3 animate-fade-up opacity-0">
-                        <p class="text-indigo-200 font-bold text-xs uppercase tracking-[0.2em] mb-4">คำถามเพื่อการเรียนรู้</p>
-                        <p class="text-2xl md:text-3xl font-black italic leading-snug">
-                            "ด้วยทรัพยากรที่คุณมี... <br class="hidden md:block"/>คุณจะแก้ปัญหานี้อย่างไร?"
+                <div class="glass rounded-[2.5rem] p-8 md:p-12">
+                    <div class="bg-indigo-600/5 border border-indigo-600/10 rounded-3xl p-6 mb-8">
+                        <h4 class="text-indigo-600 font-black text-sm mb-2 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-[10px]">!</span>
+                            หลักการและเหตุผล
+                        </h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            โครงงานนี้ถูกสร้างขึ้นเพื่อจำลอง <b>"ต้นทุนชีวิต"</b> ที่แตกต่างกันในสังคมไทย เพื่อสร้างความเข้าใจ (Empathy) ให้กับนักเรียนในชั้นเรียน
                         </p>
                     </div>
 
-                    <button onclick="nextRound()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl transition-all shadow-xl flex items-center justify-center gap-2 transform active:scale-95 stagger-3 animate-fade-up opacity-0">
-                        ${state.currentRound < state.maxRounds - 1 ? 'เหตุการณ์ถัดไป' : 'ไปที่สรุปกิจกรรม'}
-                        <span>➜</span>
+                    <div class="mb-10">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 text-center">ระบุจำนวนผู้เล่นในกลุ่ม</label>
+                        <div class="flex items-center justify-center gap-8">
+                            <button onclick="changePlayers(-1)" class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-2xl font-bold hover:bg-white transition-all active:scale-90 shadow-sm">-</button>
+                            <span id="p-count" class="text-5xl font-black text-indigo-600 animate-float">${state.playerCount}</span>
+                            <button onclick="changePlayers(1)" class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-2xl font-bold hover:bg-white transition-all active:scale-90 shadow-sm">+</button>
+                        </div>
+                    </div>
+
+                    <button onclick="startGame()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-100 transform transition-all active:scale-95 text-xl">
+                        สุ่มจุดเริ่มต้นชีวิต 🚀
                     </button>
                 </div>
             `;
-            window.scrollTo(0, 0);
         }
 
-        function nextRound() {
-            state.currentRound++;
-            renderScenario();
+        function changePlayers(v) {
+            state.playerCount = Math.max(1, Math.min(ROLE_POOL.length, state.playerCount + v));
+            document.getElementById('p-count').innerText = state.playerCount;
         }
 
-        function renderReflection() {
+        function startGame() {
+            state.activeRoles = [...ROLE_POOL].sort(() => Math.random() - 0.5).slice(0, state.playerCount);
+            state.scenarios = [...SCENARIO_POOL].sort(() => Math.random() - 0.5).slice(0, 3);
+            state.currentRound = 0;
+            renderRoles();
+        }
+
+        function renderRoles() {
+            let rolesHTML = state.activeRoles.map((r, i) => `
+                <div class="glass rounded-3xl p-6 border-l-8 border-indigo-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="text-4xl animate-float" style="animation-delay: ${i*0.2}s">${r.icon}</div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase">บทบาทผู้เล่นที่ ${i+1}</p>
+                            <h3 class="font-black text-xl text-slate-800">${r.title}</h3>
+                        </div>
+                    </div>
+                    <div class="bg-indigo-50/50 rounded-2xl p-4 mb-4">
+                        <p class="text-[10px] font-black text-indigo-400 uppercase mb-1">รายได้ต่อเดือน</p>
+                        <p class="text-lg font-black text-indigo-700">${r.income}</p>
+                    </div>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        ${r.details.map(d => `<li>• ${d}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
             appContainer.innerHTML = `
-                <div class="glass-card rounded-[3rem] p-10 md:p-16 max-w-2xl mx-auto animate-fade-up">
-                    <div class="text-center mb-12">
-                        <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6 animate-float">🏁</div>
-                        <h2 class="text-4xl font-black text-slate-900 mb-2 tracking-tighter stagger-1 animate-fade-up opacity-0">สรุปบทเรียน</h2>
-                        <p class="text-slate-500 italic stagger-1 animate-fade-up opacity-0">"ความพยายาม" อาจไม่พอ หาก "ต้นทุน" ไม่เท่ากัน</p>
+                <div class="space-y-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-black text-slate-800">สำรวจต้นทุนชีวิตของคุณ</h2>
                     </div>
-
-                    <div class="space-y-6 mb-12 text-left stagger-2 animate-fade-up opacity-0">
-                        <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                            <h4 class="font-black text-slate-800 mb-2 flex items-center gap-2">
-                                <span class="text-indigo-600">ประเด็นที่ 1:</span> ความยากในการตัดสินใจ
-                            </h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">ใครในกลุ่มที่ต้องตัดสินใจ "ยอมเสียบางอย่าง" มากที่สุด? เงินออมสำคัญแค่ไหนในยามวิกฤต?</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                            <h4 class="font-black text-slate-800 mb-2 flex items-center gap-2">
-                                <span class="text-indigo-600">ประเด็นที่ 2:</span> ความเท่าเทียมและโอกาส
-                            </h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">หากสังคมมีสวัสดิการที่ดีกว่านี้ (เช่น ประกันสุขภาพถ้วนหน้า หรือ ขนส่งสาธารณะที่ดี) ชีวิตของบทบาทใดจะง่ายขึ้นบ้าง?</p>
-                        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        ${rolesHTML}
                     </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4 stagger-3 animate-fade-up opacity-0">
-                        <button onclick="location.reload()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl transition-all shadow-xl active:scale-95">
-                            🔄 เล่นรอบใหม่
-                        </button>
-                        <button onclick="alert('ขอบคุณที่ร่วมเรียนรู้ครับ!')" class="flex-1 bg-white border-2 border-slate-100 text-slate-400 font-black py-5 rounded-2xl hover:bg-slate-50 transition-all active:scale-95">
-                            จบกิจกรรม
-                        </button>
-                    </div>
+                    <button onclick="renderScenario()" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl mt-8 shadow-2xl transform active:scale-95">
+                        เริ่มเผชิญสถานการณ์ ⚡
+                    </button>
                 </div>
             `;
-            window.scrollTo(0, 0);
+            window.scrollTo(0,0);
         }
 
-        // Initial Start
-        window.addEventListener('DOMContentLoaded', renderSetup);
+        function renderScenario() {
+            if(state.currentRound >= 3) { renderFinish(); return; }
+            const s = state.scenarios[state.currentRound];
+            appContainer.innerHTML = `
+                <div class="glass rounded-[3rem] p-8 md:p-12 text-center">
+                    <div class="inline-block px-4 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-black uppercase tracking-widest mb-10">
+                        วิกฤตการณ์ที่ ${state.currentRound+1} จาก 3
+                    </div>
+                    <div class="text-8xl mb-6 animate-float">${s.icon}</div>
+                    <h2 class="text-3xl font-black mb-4 text-slate-900">${s.title}</h2>
+                    <p class="text-xl text-slate-500 italic font-medium leading-relaxed px-4">"${s.desc}"</p>
+                    
+                    <div class="my-10 p-8 bg-indigo-600 rounded-[2rem] text-white shadow-2xl shadow-indigo-200">
+                        <p class="text-indigo-200 text-xs font-bold uppercase mb-4 tracking-widest">คำถามชวนคิด</p>
+                        <p class="text-2xl font-black italic">"ด้วยเงินที่คุณมี... คุณจะแก้ปัญหานี้อย่างไร?"</p>
+                    </div>
+
+                    <button onclick="state.currentRound++; renderScenario()" class="w-full bg-indigo-600 text-white font-black py-5 rounded-2xl text-lg transform active:scale-95">
+                        ${state.currentRound < 2 ? 'สถานการณ์ถัดไป' : 'สรุปบทเรียนโครงงาน'}
+                    </button>
+                </div>
+            `;
+            window.scrollTo(0,0);
+        }
+
+        function renderFinish() {
+            appContainer.innerHTML = `
+                <div class="glass rounded-[3rem] p-10 text-center">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6 animate-float">🏁</div>
+                    <h2 class="text-4xl font-black mb-4 text-slate-900">สรุปผลการเรียนรู้</h2>
+                    <p class="text-slate-500 mb-10">"โชคชะตาไม่ได้กำหนดด้วยความพยายามเพียงอย่างเดียว"</p>
+                    
+                    <div class="text-left space-y-4 mb-10">
+                        <div class="p-6 bg-white/50 rounded-3xl border border-white">
+                            <h4 class="font-black text-indigo-600 mb-2">บทสรุปโครงงาน:</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                กิจกรรมนี้แสดงให้เห็นว่า กลุ่มคนที่เปราะบางต้องใช้ความพยายามมากกว่าคนทั่วไปหลายเท่า เพื่อที่จะผ่านวิกฤตธรรมดาๆ ในชีวิตไปได้
+                            </p>
+                        </div>
+                    </div>
+
+                    <button onclick="location.reload()" class="w-full bg-indigo-600 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-100 transform active:scale-95">
+                        🔄 เริ่มกิจกรรมใหม่อีกครั้ง
+                    </button>
+                </div>
+            `;
+            window.scrollTo(0,0);
+        }
+
+        renderSetup();
     </script>
 </body>
 </html>
