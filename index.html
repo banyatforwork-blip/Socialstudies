@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>โปรเจกต์สังคมศึกษา | ถ้าฉันเป็น...</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
                         'pulse-bg': 'pulseBg 8s ease-in-out infinite',
                     },
                     keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
-                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
                         pulseBg: { '0%, 100%': { opacity: '0.4' }, '50%': { opacity: '0.7' } }
                     }
                 }
@@ -30,6 +30,7 @@
             background: linear-gradient(135deg, #eff6ff 0%, #faf5ff 100%);
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
         .glass {
             background: rgba(255, 255, 255, 0.7);
@@ -47,6 +48,10 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
         }
+        .btn-primary {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:active { transform: scale(0.96); }
     </style>
 </head>
 <body class="p-4 md:p-8 flex flex-col items-center">
@@ -56,7 +61,7 @@
     <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-200 rounded-full blur-[120px] animate-pulse-bg -z-10" style="animation-delay: 2s"></div>
 
     <div id="app" class="w-full max-w-3xl">
-        <!-- HEADER: The "Student" Touch with Premium Style -->
+        <!-- HEADER -->
         <header class="mb-8 text-left animate-fade-up">
             <div class="inline-flex items-center gap-2 bg-indigo-600 text-white text-[11px] font-black px-3 py-1 rounded-full mb-4 shadow-lg shadow-indigo-200 uppercase tracking-widest">
                 <span class="animate-pulse">●</span> วิชาสังคมศึกษา ม.1/12
@@ -64,67 +69,76 @@
             <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
                 ถ้าฉันเป็น... <span class="text-indigo-600">ชีวิตสมมติ</span>
             </h1>
-            <p class="text-slate-500 mt-2 text-lg font-medium">สื่อการเรียนรู้เชิงสถานการณ์ เรื่องความเหลื่อมล้ำในสังคม</p>
+            <p class="text-slate-500 mt-2 text-lg font-medium">สื่อการเรียนรู้เชิงสถานการณ์ โรงเรียนสุราษฎร์ธานี</p>
         </header>
 
         <main id="content-area" class="animate-fade-up" style="animation-delay: 0.2s">
             <!-- Dynamic Content -->
         </main>
 
-        <!-- FOOTER: The "Pass Out From Glory" Credit Section -->
+        <!-- FOOTER: Credits -->
         <footer class="mt-16 w-full animate-fade-up" style="animation-delay: 0.4s">
             <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-8"></div>
             <h3 class="text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-6">คณะผู้จัดทำโครงงาน</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
                 <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">01</div>
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600 shadow-sm">1</div>
                     <div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">กอบโชค คงเทพ</p>
                         <p class="text-sm font-bold text-slate-700">เลขที่ 1</p>
                     </div>
                 </div>
                 <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">05</div>
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600 shadow-sm">2</div>
                     <div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">ณัฐกรณ์ แสงรอด</p>
                         <p class="text-sm font-bold text-slate-700">เลขที่ 5</p>
                     </div>
                 </div>
                 <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">06</div>
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600 shadow-sm">3</div>
                     <div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">ธนบดินทร์ จักรวาลธนารักษ์</p>
                         <p class="text-sm font-bold text-slate-700">เลขที่ 6</p>
                     </div>
                 </div>
                 <div class="student-pill rounded-2xl p-4 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600">21</div>
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center font-bold text-indigo-600 shadow-sm">4</div>
                     <div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">น้ำฟ้า พลสุวรรณ</p>
                         <p class="text-sm font-bold text-slate-700">เลขที่ 21</p>
                     </div>
                 </div>
             </div>
-            <p class="text-center text-[10px] text-slate-400 mt-10 font-medium">© 2026 มัธยมศึกษาปีที่ 1 ห้อง 12 | โรงเรียนสุราษฎร์ธานี</p>
+            <p class="text-center text-[10px] text-slate-400 mt-10 font-medium">© 2024 มัธยมศึกษาปีที่ 1 ห้อง 12 | โรงเรียนสุราษฎร์ธานี</p>
         </footer>
     </div>
 
     <script>
+        // Expanded Data Pools (10 Roles, 8 Scenarios)
         const ROLE_POOL = [
-            { id: 'disabled', title: 'คนพิการ (ใช้รถเข็น)', income: '800 บาท (เบี้ยยังชีพ)', details: ['หางานยากแม้จบสูง', 'ต้องจ่ายค่าซ่อมรถเข็นบ่อย'], icon: '♿', theme: 'indigo' },
-            { id: 'farmer', title: 'เกษตรกรรายย่อย', income: 'ไม่แน่นอน', details: ['ราคาปุ๋ยแพงขึ้นเรื่อยๆ', 'ลุ้นผลผลิตตามฤดูกาล'], icon: '🌾', theme: 'green' },
-            { id: 'student', title: 'นักเรียนพาร์ทไทม์', income: '3,000 บาท/เดือน', details: ['ทำงานจนไม่มีเวลาเรียน', 'ไม่มีคอมส่วนตัว'], icon: '🎒', theme: 'orange' },
-            { id: 'singlemom', title: 'คุณแม่เลี้ยงเดี่ยว', income: '12,000 บาท', details: ['ดูแลลูกคนเดียว 24 ชม.', 'ถ้าป่วยคือรายได้หยุด'], icon: '👩‍👧', theme: 'pink' },
-            { id: 'rider', title: 'พี่ไรเดอร์ส่งอาหาร', income: 'ตามรอบวิ่ง', details: ['เสี่ยงอุบัติเหตุทุกวินาที', 'ค่าน้ำมันพุ่งสูงขึ้น'], icon: '🛵', theme: 'yellow' },
-            { id: 'elderly', title: 'คุณยายที่อยู่คนเดียว', income: '600 บาท (เบี้ยชรา)', details: ['สายตาไม่ดี ทำงานไม่ไหว', 'พึ่งพาสวัสดิการรัฐ'], icon: '👵', theme: 'slate' }
+            { id: 1, title: 'คนพิการ (ใช้รถเข็น)', income: '800 บาท (เบี้ยยังชีพ)', details: ['หางานยากแม้จบสูง', 'ต้องจ่ายค่าซ่อมรถเข็นบ่อย'], icon: '♿', theme: 'indigo' },
+            { id: 2, title: 'เกษตรกรรายย่อย', income: 'ไม่แน่นอน', details: ['ราคาปุ๋ยแพงขึ้นเรื่อยๆ', 'ลุ้นผลผลิตตามฤดูกาล'], icon: '🌾', theme: 'green' },
+            { id: 3, title: 'นักเรียนพาร์ทไทม์', income: '3,500 บาท/เดือน', details: ['ทำงานจนไม่มีเวลาเรียน', 'ไม่มีคอมพิวเตอร์ส่วนตัว'], icon: '🎒', theme: 'orange' },
+            { id: 4, title: 'คุณแม่เลี้ยงเดี่ยว', income: '12,000 บาท', details: ['ดูแลลูกคนเดียว 24 ชม.', 'ถ้าป่วยคือรายได้หยุด'], icon: '👩‍👧', theme: 'pink' },
+            { id: 5, title: 'พี่ไรเดอร์ส่งอาหาร', income: 'ตามรอบวิ่ง', details: ['เสี่ยงอุบัติเหตุทุกวินาที', 'ค่าน้ำมันพุ่งสูงขึ้น'], icon: '🛵', theme: 'yellow' },
+            { id: 6, title: 'คุณยายที่อยู่คนเดียว', income: '600 บาท (เบี้ยชรา)', details: ['สายตาไม่ดี ทำงานไม่ไหว', 'พึ่งพาสวัสดิการรัฐ'], icon: '👵', theme: 'slate' },
+            { id: 7, title: 'บัณฑิตจบใหม่ตกงาน', income: '0 บาท (อาศัยครอบครัว)', details: ['สมัครงาน 20 ที่ยังไม่ได้', 'มีหนี้ กยศ. รออยู่'], icon: '🎓', theme: 'blue' },
+            { id: 8, title: 'พนักงานโรงงาน', income: 'ค่าแรงขั้นต่ำ + OT', details: ['ทำงานวันละ 12 ชม.', 'สุขภาพเสื่อมโทรม'], icon: '🏭', theme: 'gray' },
+            { id: 9, title: 'พ่อค้าตลาดนัด', income: 'กำไรรายวัน (ไม่แน่นอน)', details: ['ฝนตก = ขาดทุน', 'โดนไล่ที่ขายของ'], icon: '🧺', theme: 'amber' },
+            { id: 10, title: 'วินมอเตอร์ไซค์', income: 'เฉลี่ย 400 บาท/วัน', details: ['คู่แข่งแอปฯ เรียกรถ', 'ไม่มีสวัสดิการรักษาพยาบาล'], icon: '🏍️', theme: 'orange' }
         ];
 
         const SCENARIO_POOL = [
-            { title: 'โดนแก๊งคอลเซ็นเตอร์หลอก!', icon: '📞', desc: 'เงินในบัญชีถูกโอนออกไปจนเกลี้ยง คุณจะเอาชีวิตรอดอย่างไรในเดือนนี้?' },
-            { title: 'พาหนะคู่ใจพังหนัก!', icon: '🛠️', desc: 'รถเสียต้องซ่อม 3,000 บาท ซึ่งเป็นเงินจำนวนมหาศาลสำหรับคุณ' },
-            { title: 'วิกฤตน้ำท่วมฉับพลัน!', icon: '🌧️', desc: 'ที่พักเสียหายหนักและต้องหยุดงาน ทำให้ขาดรายได้ที่จำเป็น' },
-            { title: 'ค่าของชีพพุ่งสูง 2 เท่า!', icon: '🥚', desc: 'ราคาข้าวและไข่ไก่แพงขึ้นจนคุณเริ่มซื้ออาหารประทังชีวิตไม่ไหว' }
+            { title: 'แก๊งคอลเซ็นเตอร์!', icon: '📞', desc: 'เงินเก็บก้อนสุดท้ายถูกหลอกโอนไปจนเกลี้ยงบัญชี' },
+            { title: 'ยานพาหนะพังหนัก!', icon: '🛠️', desc: 'ต้องซ่อมด่วน 3,000 บาท เพื่อใช้ทำมาหากินต่อในวันพรุ่งนี้' },
+            { title: 'น้ำท่วมฉับพลัน!', icon: '🌧️', desc: 'ที่พักเสียหายและต้องหยุดงาน 5 วัน ทำให้ขาดรายได้ทันที' },
+            { title: 'ของแพงขึ้น 2 เท่า!', icon: '🥚', desc: 'ราคาอาหารและของใช้พุ่งสูงจนรายได้เดิมเริ่มซื้อไม่ไหว' },
+            { title: 'เจ็บป่วยกะทันหัน!', icon: '🏥', desc: 'ต้องเข้าโรงพยาบาลด่วน มีค่ายานอกบัญชีที่ต้องจ่ายเอง' },
+            { title: 'โดนไล่ที่/ค่าเช่าขึ้น!', icon: '🏠', desc: 'เจ้าของที่ปรับค่าเช่าขึ้น 20% หรือให้ย้ายออกภายในสิ้นเดือน' },
+            { title: 'เครื่องมือทำกินพัง!', icon: '💻', desc: 'อุปกรณ์สำคัญ (คอม/เตา/รถเข็น) เสียหาย ต้องซื้อใหม่ทันที' },
+            { title: 'ค่าไฟพุ่งพรวด!', icon: '⚡', desc: 'อากาศร้อนจัด บิลค่าไฟเดือนนี้แพงกว่าปกติ 3 เท่า' }
         ];
 
         let state = { playerCount: 1, activeRoles: [], scenarios: [], currentRound: 0 };
@@ -133,18 +147,20 @@
         function renderSetup() {
             appContainer.innerHTML = `
                 <div class="glass rounded-[2.5rem] p-8 md:p-12">
-                    <div class="bg-indigo-600/5 border border-indigo-600/10 rounded-3xl p-6 mb-8">
-                        <h4 class="text-indigo-600 font-black text-sm mb-2 flex items-center gap-2">
-                            <span class="w-6 h-6 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-[10px]">!</span>
-                            หลักการและเหตุผล
-                        </h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            โครงงานนี้ถูกสร้างขึ้นเพื่อจำลอง <b>"ต้นทุนชีวิต"</b> ที่แตกต่างกันในสังคมไทย เพื่อสร้างความเข้าใจ (Empathy) ให้กับนักเรียนในชั้นเรียน
-                        </p>
+                    <!-- Subtle Rules Section -->
+                    <div class="mb-10 text-center">
+                        <div class="inline-block bg-white/50 px-6 py-4 rounded-2xl border border-white/60">
+                            <h4 class="text-indigo-600 font-bold text-xs mb-2 uppercase tracking-widest">กติกาการเล่น (Rules)</h4>
+                            <ul class="text-slate-600 text-sm space-y-1 text-left list-disc pl-4 font-medium">
+                                <li>สุ่มบทบาทเพื่อรับ "รายได้" และ "ข้อจำกัด"</li>
+                                <li>เผชิญกับสถานการณ์วิกฤต 3 รูปแบบ</li>
+                                <li>พูดคุยแลกเปลี่ยนวิธีแก้ปัญหาด้วยทรัพยากรที่มี</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="mb-10">
-                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 text-center">ระบุจำนวนผู้เล่นในกลุ่ม</label>
+                    <div class="mb-10 text-center">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6">ระบุจำนวนผู้เล่นในกลุ่ม</label>
                         <div class="flex items-center justify-center gap-8">
                             <button onclick="changePlayers(-1)" class="w-14 h-14 glass rounded-2xl flex items-center justify-center text-2xl font-bold hover:bg-white transition-all active:scale-90 shadow-sm">-</button>
                             <span id="p-count" class="text-5xl font-black text-indigo-600 animate-float">${state.playerCount}</span>
@@ -152,7 +168,7 @@
                         </div>
                     </div>
 
-                    <button onclick="startGame()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-100 transform transition-all active:scale-95 text-xl">
+                    <button onclick="startGame()" class="btn-primary w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-100 transform transition-all active:scale-95 text-xl">
                         สุ่มจุดเริ่มต้นชีวิต 🚀
                     </button>
                 </div>
@@ -199,7 +215,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         ${rolesHTML}
                     </div>
-                    <button onclick="renderScenario()" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl mt-8 shadow-2xl transform active:scale-95">
+                    <button onclick="renderScenario()" class="btn-primary w-full bg-slate-900 text-white font-black py-5 rounded-2xl mt-8 shadow-2xl transform active:scale-95">
                         เริ่มเผชิญสถานการณ์ ⚡
                     </button>
                 </div>
@@ -211,7 +227,7 @@
             if(state.currentRound >= 3) { renderFinish(); return; }
             const s = state.scenarios[state.currentRound];
             appContainer.innerHTML = `
-                <div class="glass rounded-[3rem] p-8 md:p-12 text-center">
+                <div class="glass rounded-[3rem] p-8 md:p-12 text-center animate-fade-up">
                     <div class="inline-block px-4 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-black uppercase tracking-widest mb-10">
                         วิกฤตการณ์ที่ ${state.currentRound+1} จาก 3
                     </div>
@@ -224,7 +240,7 @@
                         <p class="text-2xl font-black italic">"ด้วยเงินที่คุณมี... คุณจะแก้ปัญหานี้อย่างไร?"</p>
                     </div>
 
-                    <button onclick="state.currentRound++; renderScenario()" class="w-full bg-indigo-600 text-white font-black py-5 rounded-2xl text-lg transform active:scale-95">
+                    <button onclick="state.currentRound++; renderScenario()" class="btn-primary w-full bg-indigo-600 text-white font-black py-5 rounded-2xl text-lg transform active:scale-95">
                         ${state.currentRound < 2 ? 'สถานการณ์ถัดไป' : 'สรุปบทเรียนโครงงาน'}
                     </button>
                 </div>
@@ -234,7 +250,7 @@
 
         function renderFinish() {
             appContainer.innerHTML = `
-                <div class="glass rounded-[3rem] p-10 text-center">
+                <div class="glass rounded-[3rem] p-10 text-center animate-fade-up">
                     <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6 animate-float">🏁</div>
                     <h2 class="text-4xl font-black mb-4 text-slate-900">สรุปผลการเรียนรู้</h2>
                     <p class="text-slate-500 mb-10">"โชคชะตาไม่ได้กำหนดด้วยความพยายามเพียงอย่างเดียว"</p>
@@ -248,7 +264,7 @@
                         </div>
                     </div>
 
-                    <button onclick="location.reload()" class="w-full bg-indigo-600 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-100 transform active:scale-95">
+                    <button onclick="location.reload()" class="btn-primary w-full bg-indigo-600 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-100 transform active:scale-95">
                         🔄 เริ่มกิจกรรมใหม่อีกครั้ง
                     </button>
                 </div>
