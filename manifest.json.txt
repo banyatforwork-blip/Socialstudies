@@ -1,0 +1,13 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "cookingwith4",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "cooking4",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "CK4",
+  "description": "CookingWith4"
+}
